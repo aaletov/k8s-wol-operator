@@ -1,0 +1,16 @@
+domain: github.com
+layout:
+- go.kubebuilder.io/v3
+projectName: k8s-wol-operator
+repo: github.com/aaletov/k8s-wol-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: github.com
+  group: k8s-wol
+  kind: WolNode
+  path: github.com/aaletov/k8s-wol-operator/api/v1
+  version: v1
+version: "3"
