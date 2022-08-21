@@ -15,8 +15,8 @@ limitations under the License.
 */
 
 // Package v1 contains API Schema definitions for the k8s-wol v1 API group
-//+kubebuilder:object:generate=true
-//+groupName=k8s-wol.github.com
+// +kubebuilder:object:generate=true
+// +groupName=k8s-wol.github.com
 package v1
 
 import (

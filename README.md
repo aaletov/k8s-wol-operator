@@ -16,5 +16,5 @@ Create API
 
 ```
 kubebuilder create api --group k8s-wol --version v1 --kind AttainableNode
-kubebuilder create api --group k8s-wol --version v1 --kind WakeUpNodeRequest
+kubebuilder create api --group k8s-wol --version v1 --kind WakeNodeUpRequest
 ```

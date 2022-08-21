@@ -1,0 +1,6 @@
+apiVersion: k8s-wol.github.com/v1
+kind: WakeNodeUpRequest
+metadata:
+  name: wakenodeuprequest-sample
+spec:
+  # TODO(user): Add fields here

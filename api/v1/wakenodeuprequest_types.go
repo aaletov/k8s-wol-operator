@@ -23,36 +23,35 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// AttainableNodeSpec defines the desired state of AttainableNode
-type AttainableNodeSpec struct {
+// WakeNodeUpRequestSpec defines the desired state of WakeNodeUpRequest
+type WakeNodeUpRequestSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	NodeId string `protobuf:"bytes,1,opt,name=NodeId,proto3" json:"NodeId,omitempty"` // Node which can wake up this node
-	MAC    string `protobuf:"bytes,2,opt,name=MAC,proto3" json:"MAC,omitempty"`
+	MAC string `protobuf:"bytes,1,opt,name=MAC,proto3" json:"MAC,omitempty"`
 }
 
 // Strongly AFTER Spec
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// AttainableNode is the Schema for the attainablenodes API
-type AttainableNode struct {
+// WakeNodeUpRequest is the Schema for the wakenodeuprequests API
+type WakeNodeUpRequest struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec AttainableNodeSpec `json:"spec,omitempty"`
+	Spec WakeNodeUpRequestSpec `json:"spec,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// AttainableNodeList contains a list of AttainableNode
-type AttainableNodeList struct {
+// WakeNodeUpRequestList contains a list of WakeNodeUpRequest
+type WakeNodeUpRequestList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []AttainableNode `json:"items"`
+	Items           []WakeNodeUpRequest `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&AttainableNode{}, &AttainableNodeList{})
+	SchemeBuilder.Register(&WakeNodeUpRequest{}, &WakeNodeUpRequestList{})
 }
