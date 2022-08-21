@@ -89,11 +89,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controllers.WolNodeReconciler{
+	if err = (&controllers.AttainableNodeReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "WolNode")
+		setupLog.Error(err, "unable to create controller", "controller", "AttainableNode")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder

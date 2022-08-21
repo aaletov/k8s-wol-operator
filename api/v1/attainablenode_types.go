@@ -17,44 +17,48 @@ limitations under the License.
 package v1
 
 import (
-	apiv1 "github.com/aaletov/k8s-wol/api/generated/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
+// AttainableNodeSpec defines the desired state of AttainableNode
+type AttainableNodeSpec struct {
+	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+	// Important: Run "make" to regenerate code after modifying this file
+
+	// Foo is an example field of AttainableNode. Edit attainablenode_types.go to remove/update
+	Foo string `json:"foo,omitempty"`
+}
+
+// AttainableNodeStatus defines the observed state of AttainableNode
+type AttainableNodeStatus struct {
+	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
+	// Important: Run "make" to regenerate code after modifying this file
+}
+
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// WolNode is the Schema for the wolnodes API
-// +kubebuilder:printcolumn:name="MAC",type="string",JSONPath=".spec.MAC",description="Node MAC"
-// +kubebuilder:printcolumn:name="IsAlive",type="string",JSONPath=".spec.IsAlive",description="Is node alive"
-type WolNode struct {
+// AttainableNode is the Schema for the attainablenodes API
+type AttainableNode struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec apiv1.WolNode `json:"spec,omitempty"`
+	Spec   AttainableNodeSpec   `json:"spec,omitempty"`
+	Status AttainableNodeStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// WolNodeList contains a list of WolNode
-type WolNodeList struct {
+// AttainableNodeList contains a list of AttainableNode
+type AttainableNodeList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []WolNode `json:"items"`
-}
-
-func (in *WolNode) DeepCopyInto(out *WolNode) {
-	// We must avoid copying WolNode because it contains MessageState
-	// which contains mutex
-	out.TypeMeta = in.TypeMeta
-	in.ObjectMeta.DeepCopyInto(&out.ObjectMeta)
-	out.Spec.MAC = in.Spec.MAC
-	out.Spec.IsAlive = in.Spec.IsAlive
+	Items           []AttainableNode `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&WolNode{}, &WolNodeList{})
+	SchemeBuilder.Register(&AttainableNode{}, &AttainableNodeList{})
 }

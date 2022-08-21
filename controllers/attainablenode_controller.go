@@ -27,26 +27,26 @@ import (
 	k8swolv1 "github.com/aaletov/k8s-wol-operator/api/v1"
 )
 
-// WolNodeReconciler reconciles a WolNode object
-type WolNodeReconciler struct {
+// AttainableNodeReconciler reconciles a AttainableNode object
+type AttainableNodeReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=k8s-wol.github.com,resources=wolnodes,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=k8s-wol.github.com,resources=wolnodes/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=k8s-wol.github.com,resources=wolnodes/finalizers,verbs=update
+//+kubebuilder:rbac:groups=k8s-wol.github.com,resources=attainablenodes,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=k8s-wol.github.com,resources=attainablenodes/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=k8s-wol.github.com,resources=attainablenodes/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
 // TODO(user): Modify the Reconcile function to compare the state specified by
-// the WolNode object against the actual cluster state, and then
+// the AttainableNode object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
 // the user.
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.12.2/pkg/reconcile
-func (r *WolNodeReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *AttainableNodeReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
@@ -55,8 +55,8 @@ func (r *WolNodeReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *WolNodeReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *AttainableNodeReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&k8swolv1.WolNode{}).
+		For(&k8swolv1.AttainableNode{}).
 		Complete(r)
 }

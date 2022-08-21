@@ -1,20 +1,24 @@
-# permissions for end users to view wolnodes.
+# permissions for end users to edit attainablenodes.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: wolnode-viewer-role
+  name: attainablenode-editor-role
 rules:
 - apiGroups:
   - k8s-wol.github.com
   resources:
-  - wolnodes
+  - attainablenodes
   verbs:
+  - create
+  - delete
   - get
   - list
+  - patch
+  - update
   - watch
 - apiGroups:
   - k8s-wol.github.com
   resources:
-  - wolnodes/status
+  - attainablenodes/status
   verbs:
   - get
