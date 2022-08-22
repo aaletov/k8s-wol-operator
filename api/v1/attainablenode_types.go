@@ -24,12 +24,15 @@ import (
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
 // AttainableNodeSpec defines the desired state of AttainableNode
+// Name of this object should contain name of the host so it could be
+// obtained using WakeNodeUpRequest information
 type AttainableNodeSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	NodeId string `protobuf:"bytes,1,opt,name=NodeId,proto3" json:"NodeId,omitempty"` // Node which can wake up this node
-	MAC    string `protobuf:"bytes,2,opt,name=MAC,proto3" json:"MAC,omitempty"`
+	// Should be label so AttainableNodeReonciler could list all it's nodes
+	// NodeId string `protobuf:"bytes,1,opt,name=NodeId,proto3" json:"NodeId,omitempty"` // Node which can wake up this node
+	MAC string `protobuf:"bytes,2,opt,name=MAC,proto3" json:"MAC,omitempty"`
 }
 
 // Strongly AFTER Spec

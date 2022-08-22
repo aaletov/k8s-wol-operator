@@ -28,7 +28,7 @@ type WakeNodeUpRequestSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	MAC string `protobuf:"bytes,1,opt,name=MAC,proto3" json:"MAC,omitempty"`
+	MAC string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
 }
 
 // Strongly AFTER Spec
